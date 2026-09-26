@@ -1,0 +1,941 @@
+{
+  "name": "AI Lead Qualification & Lifecycle Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "lead-intake",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "adfe0fa1-a865-4dcc-9950-9dade41176a2",
+      "name": "Webhook",
+      "webhookId": "REDACTED_WEBHOOK_ID"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "28f9a1a9-3bae-4f4f-b7eb-8524991f36ed",
+              "name": "full_name",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_4N85O5\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "84cf6755-f2c0-4845-a68e-d618853b8f80",
+              "name": "company",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_j9yNz1\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "d3b6f30b-6ec6-46a9-852b-0b8bbbda460d",
+              "name": "role_title",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_2xe0oM\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "7e84b26a-74a9-41a0-a4f5-f475b0a3cf8e",
+              "name": "email",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_xNpKzk\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "a672ed8d-c976-49b3-9235-21d5bbf45e1b",
+              "name": "phone",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_ZRN0Q5\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "9c6be7a5-82cf-485a-9e06-9ba3fbc8a5b7",
+              "name": "website",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_NB6kOp\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "35e4729f-fe07-4924-8eaf-b5c6ceab6cf8",
+              "name": "referral_source",
+              "value": "={{ (() => { const f = $json.body.data.fields.find(x => x.key === \"question_pPKaZP\"); return f.options.find(o => o.id === f.value[0])?.text; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "e95c6d4f-df84-4834-bf2d-83ed8a1878f4",
+              "name": "referral_name",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_12l8Bb\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "22ba923d-6bb0-40d0-9478-2e5e629f2a99",
+              "name": "industry",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_qEd6N5\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "03400fe3-1e6c-40c5-9b64-1fd2da43c503",
+              "name": "company_size",
+              "value": "={{ (() => { const f = $json.body.data.fields.find(x => x.key === \"question_LMXl2l\"); return f.options.find(o => o.id === f.value[0])?.text; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "dd49262c-22b6-4338-bdcc-3c5887b2767f",
+              "name": "annual_revenue",
+              "value": "={{ (() => { const f = $json.body.data.fields.find(x => x.key === \"question_pPGa28\"); return f.options.find(o => o.id === f.value[0])?.text; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "9f5d41c5-ec73-4117-a8e4-09d441de774d",
+              "name": "products_services",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_ex64oQ\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "40597ae2-5687-4ad6-809b-8b30af8e5b8d",
+              "name": "primary_challenge",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_ar6Vl2\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "828c13cf-d06e-4846-90ad-aa3ebb5b5cdc",
+              "name": "operational_issues",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_llLoXv\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "827bc7f2-2c7c-4acc-a5f1-433b9a05e357",
+              "name": "current_systems",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_b47PA7\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "97dc0806-a9cb-4d18-af65-3b30b0df6b9b",
+              "name": "systems_to_keep",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_AbdZQl\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "70d8fa3e-e5fd-4387-a2d0-3ada762a5171",
+              "name": "automation_maturity",
+              "value": "={{ (() => { const f = $json.body.data.fields.find(x => x.key === \"question_12M8a1\"); return f.options.find(o => o.id === f.value[0])?.text; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "5f57e481-81af-4794-b933-409b36a078f2",
+              "name": "considering_project",
+              "value": "={{ (() => { const f = $json.body.data.fields.find(x => x.key === \"question_MdLBxk\"); return f.options.find(o => o.id === f.value[0])?.text; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "678adfe5-e33b-452e-8a2f-695711468832",
+              "name": "project_details",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_JkL7PK\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "3de22e34-39b9-4973-a3b6-a0ed8bb7aaa5",
+              "name": "desired_outcome",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_79WGP2\").value }}",
+              "type": "string"
+            },
+            {
+              "id": "99d2a78f-7d01-4f3f-b998-a805701d9fbe",
+              "name": "budget_range",
+              "value": "={{ (() => { const f = $json.body.data.fields.find(x => x.key === \"question_gNL2lD\"); return f.options.find(o => o.id === f.value[0])?.text; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "754b6300-dced-4b41-8558-bc4f9b52c27d",
+              "name": "timeline",
+              "value": "={{ (() => { const f = $json.body.data.fields.find(x => x.key === \"question_yqxLQX\"); return f.options.find(o => o.id === f.value[0])?.text; })() }}",
+              "type": "string"
+            },
+            {
+              "id": "d8d6e211-14cd-429b-87a8-cb9662bb41d4",
+              "name": "additional_context",
+              "value": "={{ $json.body.data.fields.find(f => f.key === \"question_LMbloJ\").value }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        176,
+        0
+      ],
+      "id": "ebd59bc7-a43d-4099-b5c1-ff58068cb3a5",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are the lead qualification analyst for a business automation services firm.\n\nThe firm provides AI implementation, business process automation, systems integration, workflow design, and AI-enabled operational solutions for businesses.\n\nYour task is to evaluate the qualitative portion of an inbound business lead using only the information supplied.\n\nYou are responsible for two qualification dimensions:\n\n1. SERVICE FIT — maximum 30 points\nEvaluate whether the prospect's stated business problem is appropriate for the firm's services.\n\nScoring guidance:\n25-30 = Strong direct fit for AI, automation, systems integration, workflow, or operational implementation services.\n18-24 = Good fit but scope requires additional discovery.\n10-17 = Partial fit; the firm may be able to help with only part of the need.\n1-9 = Weak fit with the firm's services.\n0 = Clearly outside of the firm's service scope.\n\n2. PROBLEM CLARITY — maximum 15 points\nEvaluate how clearly the prospect identifies the operational problem, current pain points, desired outcome, and relevant context.\n\nScoring guidance:\n13-15 = Problem and desired outcome are specific and actionable.\n9-12 = Problem is reasonably clear but important details require discovery.\n5-8 = General problem identified but scope/outcome remains unclear.\n1-4 = Very limited or vague problem definition.\n0 = No meaningful problem information supplied.\n\nDo not modify or calculate budget, timeline, or project-readiness scores. Those are calculated separately using deterministic business rules.\n\nIn addition to the internal analysis, create a client_facing_summary.\n\nCLIENT-FACING SUMMARY\nWrite 1–2 concise sentences that acknowledge the prospect's primary business challenge and identify the general opportunity the firm sees to help. Write in polished, professional language appropriate for a consulting firm's client correspondence.\n\nTranslate technical implementation concepts into business language. Focus on the prospect's operational challenge and desired improvement rather than describing specific system architecture.\n\nDo not use casual phrasing such as \"getting hit with,\" overly technical terms such as \"queue items,\" or implementation-specific language unless necessary for understanding.\n\nPrefer two short, natural sentences over one long sentence. The summary should sound as though a consultant personally reviewed the prospect's intake and is acknowledging their needs.\n\nThis text will be inserted directly into a client-facing follow-up email after the firm has reviewed the prospect's intake.\n\nThe client_facing_summary must:\n- Use natural, consultative business language.\n- Be written appropriately for the prospect to read directly.\n- Use \"you,\" \"your,\" or \"your team\" where natural.\n- Reflect only information supplied in the intake.\n- Focus on the business challenge and potential opportunity for improvement, without making promise for services and results. \n- Avoid excessive technical jargon.\n\nThe client_facing_summary must NOT:\n- Mention qualification scores or qualification status.\n- Mention AI analysis, internal routing, scoring, or internal decision-making.\n- Reveal internal evaluation criteria.\n- Make guarantees or promise specific results.\n- Invent requirements, facts, or business problems not supplied by the prospect.\n- State or imply that the firm has already finalized a solution.\n- State or imply that the prospect has agreed to purchase services.\n- Include pricing, budget, or contract language.\n- Include a greeting, sign-off, scheduling request, or call to action. Those are handled separately by the email template.\n\nThe remaining analysis fields are for internal use and may use more technical language where appropriate.\n\nReturn ONLY valid JSON. Do not include markdown, code fences, commentary, or text outside the JSON.\n\nUse exactly this structure:\n\n{\n  \"service_fit_score\": 0,\n  \"problem_clarity_score\": 0,\n  \"primary_need\": \"\",\n  \"problem_categories\": [],\n  \"recommended_service\": \"\",\n  \"lead_summary\": \"\",\n  \"client_facing_summary\": \"\",\n  \"suggested_solution\": [],\n  \"discovery_focus\": []\n}"
+            },
+            {
+              "content": "=Evaluate this inbound lead.\n\nCompany: {{ $json.company }}\nIndustry: {{ $json.industry }}\nCompany size: {{ $json.company_size }}\nAnnual revenue: {{ $json.annual_revenue }}\nProducts/services: {{ $json.products_services }}\n\nPrimary challenge:\n{{ $json.primary_challenge }}\n\nOperational issues:\n{{ $json.operational_issues }}\n\nCurrent systems:\n{{ $json.current_systems }}\n\nSystems they want to keep:\n{{ $json.systems_to_keep }}\n\nCurrent automation maturity:\n{{ $json.automation_maturity }}\n\nConsidering a specific project:\n{{ $json.considering_project }}\n\nProject details:\n{{ $json.project_details }}\n\nDesired outcome:\n{{ $json.desired_outcome }}\n\nAdditional context:\n{{ $json.additional_context }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {
+          "textFormat": {
+            "textOptions": {
+              "type": "json_schema",
+              "name": "lead_qualification_analysis",
+              "schema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"service_fit_score\": {\n      \"type\": \"integer\"\n    },\n    \"problem_clarity_score\": {\n      \"type\": \"integer\"\n    },\n    \"primary_need\": {\n      \"type\": \"string\"\n    },\n    \"problem_categories\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"recommended_service\": {\n      \"type\": \"string\"\n    },\n    \"lead_summary\": {\n      \"type\": \"string\"\n    },\n    \"client_facing_summary\": {\n      \"type\": \"string\"\n    },\n    \"suggested_solution\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    },\n    \"discovery_focus\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"string\"\n      }\n    }\n  },\n  \"required\": [\n    \"service_fit_score\",\n    \"problem_clarity_score\",\n    \"primary_need\",\n    \"problem_categories\",\n    \"recommended_service\",\n    \"lead_summary\",\n    \"client_facing_summary\",\n    \"suggested_solution\",\n    \"discovery_focus\"\n  ],\n  \"additionalProperties\": false\n}",
+              "description": "Structured qualitative analysis for an inbound qualification workflow.",
+              "strict": true
+            }
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        432,
+        128
+      ],
+      "id": "f626c8fa-689e-4def-a127-c6c1ee91110c",
+      "name": "Qualification: AI Analysis",
+      "credentials": {
+        "openAiApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nconst items = $input.all();\n\nreturn items.map(item => {\n  const lead = item.json;\n\n  // ---------------------------------\n  // BUDGET SCORE — max 25 points\n  // ---------------------------------\n  const budgetScores = {\n  \"Under $2,500\": 8,\n  \"$2,500–$5,000\": 15,\n  \"$5,000–$10,000\": 20,\n  \"$10,000–$25,000\": 25,\n  \"$25,000+\": 25,\n  \"Not sure yet\": 10\n};\n\n  // ---------------------------------\n  // TIMELINE SCORE — max 20 points\n  // ---------------------------------\n  const timelineScores = {\n    \"As soon as possible\": 20,\n    \"Within 30 days\": 20,\n    \"1-3 months\": 15,\n    \"3-6 months\": 10,\n    \"6+ months\": 5,\n    \"Just exploring\": 3\n  };\n\n  // ---------------------------------\n  // PROJECT READINESS — max 10 points\n  // ---------------------------------\n  const projectScores = {\n    \"Yes\": 10,\n    \"Not sure yet\": 5,\n    \"No\": 2\n  };\n\n  // Calculate individual scores\n  const budgetScore =\n    budgetScores[lead.budget_range] ?? 0;\n\n  const timelineScore =\n    timelineScores[lead.timeline] ?? 0;\n\n  const projectReadinessScore =\n    projectScores[lead.considering_project] ?? 0;\n\n  // Objective business-rule subtotal\n  const businessRulesScore =\n    budgetScore +\n    timelineScore +\n    projectReadinessScore;\n\n  // Return original lead data + qualification data\n  return {\n    json: {\n      ...lead,\n\n      qualification: {\n        budget_score: budgetScore,\n        timeline_score: timelineScore,\n        project_readiness_score: projectReadinessScore,\n        business_rules_score: businessRulesScore,\n        business_rules_max: 55\n      }\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        496,
+        -96
+      ],
+      "id": "0d72f790-4289-463b-967d-d5eb586eaf55",
+      "name": "Qualification: Business Rules"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\n// Final Lead Qualification\n// Combines deterministic business-rule scoring with AI qualitative analysis\n\nconst business = $(\"Qualification: Business Rules\").first().json;\nconst aiResponse = $(\"Qualification: AI Analysis\").first().json;\n\n// OpenAI structured output is nested here\nconst ai = aiResponse.output[0].content[0].text;\n\n// -------------------------\n// VALIDATE AI SCORES\n// -------------------------\n\nconst serviceFitScore = Number(ai.service_fit_score);\nconst problemClarityScore = Number(ai.problem_clarity_score);\n\nif (\n  !Number.isFinite(serviceFitScore) ||\n  serviceFitScore < 0 ||\n  serviceFitScore > 30\n) {\n  throw new Error(\"Invalid service_fit_score returned by AI\");\n}\n\nif (\n  !Number.isFinite(problemClarityScore) ||\n  problemClarityScore < 0 ||\n  problemClarityScore > 15\n) {\n  throw new Error(\"Invalid problem_clarity_score returned by AI\");\n}\n\n// -------------------------\n// FINAL SCORE\n// -------------------------\n\nconst businessRulesScore = Number(\n  business.qualification.business_rules_score\n);\n\nconst aiScore = serviceFitScore + problemClarityScore;\n\nconst qualificationScore =\n  businessRulesScore + aiScore;\n\n// -------------------------\n// QUALIFICATION STATUS\n// -------------------------\n\nlet qualificationStatus;\nlet routingPriority;\n\nif (qualificationScore >= 80) {\n  qualificationStatus = \"Highly Qualified\";\n  routingPriority = \"High\";\n} else if (qualificationScore >= 60) {\n  qualificationStatus = \"Qualified\";\n  routingPriority = \"Standard\";\n} else if (qualificationScore >= 40) {\n  qualificationStatus = \"Needs Review\";\n  routingPriority = \"Review\";\n} else {\n  qualificationStatus = \"Not Qualified\";\n  routingPriority = \"Low\";\n}\n\n// -------------------------\n// RETURN ENRICHED LEAD\n// -------------------------\n\nreturn [\n  {\n    json: {\n      ...business,\n\n      qualification: {\n        ...business.qualification,\n\n        service_fit_score: serviceFitScore,\n        problem_clarity_score: problemClarityScore,\n        ai_score: aiScore,\n\n        qualification_score: qualificationScore,\n        qualification_status: qualificationStatus,\n        routing_priority: routingPriority\n      },\n\n      ai_analysis: {\n        primary_need: ai.primary_need,\n        problem_categories: ai.problem_categories,\n        recommended_service: ai.recommended_service,\n        lead_summary: ai.lead_summary,\n        client_facing_summary: ai.client_facing_summary,\n        suggested_solution: ai.suggested_solution,\n        discovery_focus: ai.discovery_focus\n      }\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1024,
+        16
+      ],
+      "id": "e272f15d-66e8-4937-af65-5f7c27717db1",
+      "name": "Qualification: Final Score"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        784,
+        16
+      ],
+      "id": "a7f3d99f-7433-451a-a68a-19944891164b",
+      "name": "Merge Results"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "High",
+                    "rightValue": "={{ $json.qualification.routing_priority }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "89badff4-4c96-479a-8e83-43ed072781c4"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "79b35147-eaee-4c2d-aaa9-3c6964b45eb8",
+                    "leftValue": "Standard",
+                    "rightValue": "={{ $json.qualification.routing_priority }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "b12a1228-df46-4031-a550-4aaefe128426",
+                    "leftValue": "Review",
+                    "rightValue": "={{ $json.qualification.routing_priority }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "16c02400-776f-499b-90b5-e5caefbbf4eb",
+                    "leftValue": "Low",
+                    "rightValue": "={{ $json.qualification.routing_priority }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        1280,
+        -16
+      ],
+      "id": "a76d76bb-fafd-4264-916b-1f616d1d70a6",
+      "name": "Qualification Tier Routing"
+    },
+    {
+      "parameters": {
+        "fromEmail": "Demo Automation <YOUR_SENDER_EMAIL>",
+        "toEmail": "={{ $('Qualification: Final Score').item.json.email }}",
+        "subject": "We received your automation project inquiry",
+        "html": "=<p>Hi {{ $('Qualification: Final Score').item.json.full_name.split(' ')[0] }},</p>\n\n<p>Thank you for reaching out to DEMO AI . We've reviewed the information you shared about {{ $('Qualification: Final Score').item.json.company }}.</p>\n\n<p>{{ $('Qualification: Final Score').item.json.ai_analysis.client_facing_summary }}</p>\n\n<p>We'd love to connect with you to discuss potential solutions, walk through an implementation strategy, and learn more about any additional priorities you'd like us to consider.</p>\n\n<p>Please let us know when you're available for a Solution Strategy Call by selecting a time that works best for you below.</p>\n\n<p><a href=\"YOUR_BOOKING_LINK\"><strong>Schedule a Solution Strategy Call →</strong></a></p>\n\n<p>We look forward to speaking with you.</p>\n\n<p>Best,<br>\nImplementation Team<br>\n<strong>DEMO AI</strong><br>\n<em>The human half of AI.</em></p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1680,
+        224
+      ],
+      "id": "3b00dd98-f094-4a43-a8dc-0d74c5014bb3",
+      "name": "Email: Lead Acknowledgement2",
+      "webhookId": "REDACTED_WEBHOOK_ID",
+      "credentials": {
+        "smtp": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "email": "={{ $json.email }}",
+        "additionalFields": {
+          "firstName": "={{ $json.full_name.split(' ')[0] }}",
+          "jobTitle": "={{ $json.role_title }}",
+          "lastName": "={{ $json.full_name.split(' ').slice(1).join(' ') }}",
+          "phoneNumber": "={{ $json.phone }}"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2.2,
+      "position": [
+        1472,
+        -144
+      ],
+      "id": "ee9400c9-9f8d-4c37-9ebd-ecfce3fe40cf",
+      "name": "Upsert Standard Contact",
+      "credentials": {
+        "hubspotOAuth2Api": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "email": "={{ $json.email }}",
+        "additionalFields": {
+          "firstName": "={{ $json.full_name.split(' ')[0] }}",
+          "jobTitle": "={{ $json.role_title }}",
+          "lastName": "={{ $json.full_name.split(' ').slice(1).join(' ') }}",
+          "phoneNumber": "={{ $json.phone }}"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2.2,
+      "position": [
+        1472,
+        -320
+      ],
+      "id": "a59c0e3b-9747-4dcb-8463-071c9699b50f",
+      "name": "Upsert Priority Contact",
+      "credentials": {
+        "hubspotOAuth2Api": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "email": "={{ $json.email }}",
+        "additionalFields": {
+          "firstName": "={{ $json.full_name.split(' ')[0] }}",
+          "jobTitle": "={{ $json.role_title }}",
+          "lastName": "={{ $json.full_name.split(' ').slice(1).join(' ') }}",
+          "phoneNumber": "={{ $json.phone }}"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2.2,
+      "position": [
+        1472,
+        32
+      ],
+      "id": "522ae7d7-4453-46a3-b603-d8de15442812",
+      "name": "Upsert Review Contact",
+      "credentials": {
+        "hubspotOAuth2Api": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "email": "={{ $json.email }}",
+        "additionalFields": {
+          "firstName": "={{ $json.full_name.split(' ')[0] }}",
+          "jobTitle": "={{ $json.role_title }}",
+          "lastName": "={{ $json.full_name.split(' ').slice(1).join(' ') }}",
+          "phoneNumber": "={{ $json.phone }}"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2.2,
+      "position": [
+        1472,
+        224
+      ],
+      "id": "c1ae59d1-a22d-43b2-a5c0-5bbcc10ba803",
+      "name": "Upsert Nurture Contact",
+      "credentials": {
+        "hubspotOAuth2Api": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "deal",
+        "stage": "REDACTED",
+        "additionalFields": {
+          "amount": "",
+          "associatedVids": [],
+          "dealName": "={{ $('Qualification: Final Score').item.json.company }} — AI/Automation Opportunity",
+          "dealOwner": {
+            "__rl": true,
+            "value": "REDACTED",
+            "mode": "list",
+            "cachedResultName": "REDACTED"
+          },
+          "pipeline": "default"
+        }
+      },
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2.2,
+      "position": [
+        1904,
+        -320
+      ],
+      "id": "e2b88639-9c3e-4a95-98bf-c0a2c80e17d5",
+      "name": "Create Priority Deal",
+      "credentials": {
+        "hubspotOAuth2Api": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "REDACTED_SLACK_CHANNEL_ID",
+          "mode": "list",
+          "cachedResultName": "new-leads"
+        },
+        "text": "=🔥 *NEW HIGH-PRIORITY LEAD*  *Company:* {{ $('Qualification: Final Score').item.json.company }} *Contact:* {{ $('Qualification: Final Score').item.json.full_name }} *Qualification Score:* {{ $('Qualification: Final Score').item.json.qualification.qualification_score }}/100 *Budget:* {{ $('Qualification: Final Score').item.json.budget_range }} *Timeline:* {{ $('Qualification: Final Score').item.json.timeline }}  *Primary Need* {{ $('Qualification: Final Score').item.json.ai_analysis.primary_need }}  *Recommended Service* {{ $('Qualification: Final Score').item.json.ai_analysis.recommended_service }}  *Next Action:* Review opportunity and prepare for discovery.",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.7,
+      "position": [
+        2112,
+        -320
+      ],
+      "id": "41be2e42-6ddc-4166-b766-be4a28001af0",
+      "name": "High Priority Lead Alert",
+      "webhookId": "REDACTED_WEBHOOK_ID",
+      "credentials": {
+        "slackOAuth2Api": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "deal",
+        "stage": "REDACTED",
+        "additionalFields": {
+          "amount": "",
+          "associatedVids": [],
+          "dealName": "={{ $('Qualification: Final Score').item.json.company }} — AI/Automation Opportunity",
+          "dealOwner": {
+            "__rl": true,
+            "value": "REDACTED",
+            "mode": "list",
+            "cachedResultName": "REDACTED"
+          },
+          "pipeline": "default"
+        }
+      },
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2.2,
+      "position": [
+        1904,
+        -144
+      ],
+      "id": "00c1ba09-6046-4189-b2be-0023b5278e86",
+      "name": "Create Standard Deal",
+      "credentials": {
+        "hubspotOAuth2Api": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "REDACTED_SLACK_CHANNEL_ID",
+          "mode": "list",
+          "cachedResultName": "new-leads"
+        },
+        "text": "=✨ *NEW QUALIFIED LEAD — STANDARD PRIORITY*  *Company:* {{ $('Qualification: Final Score').item.json.company }} *Contact:* {{ $('Qualification: Final Score').item.json.full_name }} *Qualification Score:* {{ $('Qualification: Final Score').item.json.qualification.qualification_score }}/100 *Budget:* {{ $('Qualification: Final Score').item.json.budget_range }} *Timeline:* {{ $('Qualification: Final Score').item.json.timeline }}  *Primary Need* {{ $('Qualification: Final Score').item.json.ai_analysis.primary_need }}  *Recommended Service* {{ $('Qualification: Final Score').item.json.ai_analysis.recommended_service }}  *Next Action:* Review opportunity and prepare for discovery.",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.7,
+      "position": [
+        2112,
+        -144
+      ],
+      "id": "2d5cc76c-f854-4a53-abe6-f463d038ad30",
+      "name": "Standard Lead Alert",
+      "webhookId": "REDACTED_WEBHOOK_ID",
+      "credentials": {
+        "slackOAuth2Api": {}
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "Demo Automation <YOUR_SENDER_EMAIL>",
+        "toEmail": "={{ $('Qualification: Final Score').item.json.email }}",
+        "subject": "We received your automation project inquiry",
+        "html": "=<p>Hi {{ $('Qualification: Final Score').item.json.full_name.split(' ')[0] }},</p>\n\n<p>Thank you for reaching out to DEMO AI. We've reviewed the information you shared about {{ $('Qualification: Final Score').item.json.company }}.</p>\n\n<p>{{ $('Qualification: Final Score').item.json.ai_analysis.client_facing_summary }}</p>\n\n<p>We'd love to connect with you to discuss potential solutions, walk through an implementation strategy, and learn more about any additional priorities you'd like us to consider.</p>\n\n<p>Please let us know when you're available for a Solution Strategy Call by selecting a time that works best for you below.</p>\n\n<p><a href=\"YOUR_BOOKING_LINK\"><strong>Schedule a Solution Strategy Call →</strong></a></p>\n\n<p>We look forward to speaking with you.</p>\n\n<p>Best,<br>\nImplementation Team<br>\n<strong>DEMO AI</strong><br>\n<em>The human half of AI.</em></p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        2320,
+        -320
+      ],
+      "id": "01f81aad-c4da-4b04-a128-dc8a51d269f1",
+      "name": "Solution Strategy Invitation",
+      "webhookId": "REDACTED_WEBHOOK_ID",
+      "credentials": {
+        "smtp": {}
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "Demo Automation <YOUR_SENDER_EMAIL>",
+        "toEmail": "={{ $('Qualification: Final Score').item.json.email }}",
+        "subject": "We received your automation project inquiry",
+        "html": "=<p>Hi {{ $('Qualification: Final Score').item.json.full_name.split(' ')[0] }},</p>\n\n<p>Thank you for reaching out to DEMO AI. We've reviewed the information you shared about {{ $('Qualification: Final Score').item.json.company }}.</p>\n\n<p>{{ $('Qualification: Final Score').item.json.ai_analysis.client_facing_summary }}</p>\n\n<p>We'd love to connect with you to discuss potential solutions, walk through an implementation strategy, and learn more about any additional priorities you'd like us to consider.</p>\n\n<p>Please let us know when you're available for a Solution Strategy Call by selecting a time that works best for you below.</p>\n\n<p><a href=\"YOUR_BOOKING_LINK\"><strong>Schedule a Solution Strategy Call →</strong></a></p>\n\n<p>We look forward to speaking with you.</p>\n\n<p>Best,<br>\nImplementation Team<br>\n<strong>DEMO AI</strong><br>\n<em>The human half of AI.</em></p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        2320,
+        -144
+      ],
+      "id": "09e3a8b3-6870-4d5d-8699-7082ea65c00b",
+      "name": "Solution Strategy Invitation1",
+      "webhookId": "REDACTED_WEBHOOK_ID",
+      "credentials": {
+        "smtp": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "REDACTED_SLACK_CHANNEL_ID",
+          "mode": "list",
+          "cachedResultName": "new-leads"
+        },
+        "text": "=✨ *NEW QUALIFIED LEAD — STANDARD PRIORITY*  *Company:* {{ $('Qualification: Final Score').item.json.company }} *Contact:* {{ $('Qualification: Final Score').item.json.full_name }} *Qualification Score:* {{ $('Qualification: Final Score').item.json.qualification.qualification_score }}/100 *Budget:* {{ $('Qualification: Final Score').item.json.budget_range }} *Timeline:* {{ $('Qualification: Final Score').item.json.timeline }}  *Primary Need* {{ $('Qualification: Final Score').item.json.ai_analysis.primary_need }}  *Recommended Service* {{ $('Qualification: Final Score').item.json.ai_analysis.recommended_service }}  *Next Action:* Review opportunity and prepare for discovery.",
+        "otherOptions": {}
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.7,
+      "position": [
+        1680,
+        32
+      ],
+      "id": "e1065220-02cb-4b3c-8576-ad60d72d1850",
+      "name": "Rep Review Required",
+      "webhookId": "REDACTED_WEBHOOK_ID",
+      "credentials": {
+        "slackOAuth2Api": {}
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "Demo Automation <YOUR_SENDER_EMAIL>",
+        "toEmail": "={{ $('Qualification: Final Score').item.json.email }}",
+        "subject": "We received your automation project inquiry",
+        "html": "=<p>Hi {{ $('Qualification: Final Score').item.json.full_name.split(' ')[0] }},</p>\n\n<p>Thank you for reaching out to DEMO AI. We've reviewed the information you shared about {{ $('Qualification: Final Score').item.json.company }}.</p>\n\n<p>{{ $('Qualification: Final Score').item.json.ai_analysis.client_facing_summary }}</p>\n\n<p>We'd love to connect with you to discuss potential solutions, walk through an implementation strategy, and learn more about any additional priorities you'd like us to consider.</p>\n\n<p>Please let us know when you're available for a Solution Strategy Call by selecting a time that works best for you below.</p>\n\n<p><a href=\"YOUR_BOOKING_LINK\"><strong>Schedule a Solution Strategy Call →</strong></a></p>\n\n<p>We look forward to speaking with you.</p>\n\n<p>Best,<br>\nImplementation Team<br>\n<strong>DEMO AI</strong><br>\n<em>The human half of AI.</em></p>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        1872,
+        32
+      ],
+      "id": "44a053d1-c4ae-4177-9dfa-0d057a3fac0e",
+      "name": "Intake Received",
+      "webhookId": "REDACTED_WEBHOOK_ID",
+      "credentials": {
+        "smtp": {}
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "company",
+        "name": "={{ $('Qualification: Final Score').item.json.company }}",
+        "additionalFields": {
+          "companyDomainName": "={{ $('Qualification: Final Score').item.json.website }}"
+        }
+      },
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2.2,
+      "position": [
+        1696,
+        -320
+      ],
+      "id": "1486f677-454a-42dc-9eec-71f3ad4422ae",
+      "name": "Create a company",
+      "credentials": {
+        "hubspotOAuth2Api": {}
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Qualification: Business Rules",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Qualification: AI Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qualification: AI Analysis": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Qualification: Business Rules": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qualification: Final Score": {
+      "main": [
+        [
+          {
+            "node": "Qualification Tier Routing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Results": {
+      "main": [
+        [
+          {
+            "node": "Qualification: Final Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qualification Tier Routing": {
+      "main": [
+        [
+          {
+            "node": "Upsert Priority Contact",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Upsert Standard Contact",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Upsert Review Contact",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Upsert Nurture Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert Standard Contact": {
+      "main": [
+        [
+          {
+            "node": "Create Standard Deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert Priority Contact": {
+      "main": [
+        [
+          {
+            "node": "Create a company",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert Review Contact": {
+      "main": [
+        [
+          {
+            "node": "Rep Review Required",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upsert Nurture Contact": {
+      "main": [
+        [
+          {
+            "node": "Email: Lead Acknowledgement2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Priority Deal": {
+      "main": [
+        [
+          {
+            "node": "High Priority Lead Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "High Priority Lead Alert": {
+      "main": [
+        [
+          {
+            "node": "Solution Strategy Invitation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Standard Deal": {
+      "main": [
+        [
+          {
+            "node": "Standard Lead Alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Standard Lead Alert": {
+      "main": [
+        [
+          {
+            "node": "Solution Strategy Invitation1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rep Review Required": {
+      "main": [
+        [
+          {
+            "node": "Intake Received",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a company": {
+      "main": [
+        [
+          {
+            "node": "Create Priority Deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "REDACTED",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "REDACTED"
+  },
+  "nodeGroups": [],
+  "id": "REDACTED",
+  "tags": []
+}
